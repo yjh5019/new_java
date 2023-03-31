@@ -1,0 +1,33 @@
+package test;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		int i,j;
+		i = 3;
+		j = 5;
+		
+		if ( i > j ) {
+			System.out.println("i가더크다");
+			
+		} else {
+			System.out.println("j가더크다");
+			
+		}
+		
+	}
+	
+	public static void ex() {
+		System.out.println("133333");
+	}
+	
+	public static void eeee() {
+		System.out.println("33311111333");
+	}
+
+}

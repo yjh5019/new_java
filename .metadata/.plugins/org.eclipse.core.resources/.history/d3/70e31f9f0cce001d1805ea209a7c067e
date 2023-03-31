@@ -1,0 +1,55 @@
+package soft_06;
+
+public class ex14_method_channel {
+	
+	private String help;
+    private int limit_up_channel; //  최고 볼륨
+    private int limit_dowun_channel; // 최저 볼륨
+    int channel = 1; // 현재 채널
+
+
+    ex14_method_channel(){
+        limit_up_channel = 20; // 최고 채널
+        limit_dowun_channel = 1; // 최저 채널
+        channel = 1;
+        help = "티비 채널 시작";
+    }
+    ex14_method_channel(int up_channel, int down_channel, int in_channel){
+        limit_up_channel = up_channel; // 최고 채널
+        limit_dowun_channel = down_channel; // 최저 채널
+        channel = in_channel;
+        help = "티비 채널 누르기";
+    }
+    void up(){
+        if(channel == limit_up_channel){
+            help = "마지막 채널입니다";
+        }else{
+            channel++;
+            help=String.format("[%d] 채널입니다]", channel);
+        }
+    }
+
+    void down(){
+        if(channel == limit_dowun_channel){
+            help = "처음 채널 입니다.";
+        }else{
+            channel--;
+            help=String.format("[%d] 채널입니다]", channel);
+        }
+    }
+
+    void up(int u){
+        for(int i=0; i< u; i++){
+            this.up();
+        }
+    }
+    void down(int u){
+        for(int i=0; i< u; i++){
+            this.down();
+        }
+    }
+    void msg(String id){
+        System.out.printf("%s =>[%s] 최대 채널[%d], 최소 채널[%d], 현재 채널[%d]\n",id,help,limit_up_channel,limit_dowun_channel,channel);
+    }
+
+}

@@ -1,0 +1,52 @@
+package test2;
+import java.util.*;
+public class problem5 {
+	
+	public int[] solution(String s){
+		int[] answer = new int[5];
+		HashMap<Character, Integer> sH = new HashMap<>();
+		
+		
+		for(char x : s.toCharArray()) { // 배열로 생성한ㄷ마./
+			sH.put(x, sH.getOrDefault(x, 0)+1);
+			System.out.println(sH);
+		}
+		System.out.println(sH.values());
+			
+//			if(c1=='a' ) { //|| c=='b'|| c=='c' || c=='d'|| c=='e'
+//				a++;
+//			}
+//			if(c1=='b' ) { //|| c=='b'|| c=='c' || c=='d'|| c=='e'
+//				b++;
+//			}
+//			if(c1=='c' ) { //|| c=='b'|| c=='c' || c=='d'|| c=='e'
+//				c1++;
+//			}
+//			if(c1=='d' ) { //|| c=='b'|| c=='c' || c=='d'|| c=='e'
+//				d++;
+//			}
+//			if(c1=='e' ) { //|| c=='b'|| c=='c' || c=='d'|| c=='e'
+//				e++;
+//			}
+			
+			
+			
+			return answer;
+		}
+		
+	
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		problem5 T = new problem5();
+		System.out.println(Arrays.toString(T.solution("aaabc")));
+		System.out.println(Arrays.toString(T.solution("aabb")));
+		System.out.println(Arrays.toString(T.solution("abcde")));
+		System.out.println(Arrays.toString(T.solution("abcdeabc")));
+		System.out.println(Arrays.toString(T.solution("abbccddee")));
+
+	}
+
+}

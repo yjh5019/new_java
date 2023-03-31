@@ -1,0 +1,14 @@
+package test;
+
+public class Main {
+
+	public static void main(String[] args) {
+		ex()
+		
+	}
+	
+	public static void ex() {
+		System.out.println("133333");
+	}
+
+}

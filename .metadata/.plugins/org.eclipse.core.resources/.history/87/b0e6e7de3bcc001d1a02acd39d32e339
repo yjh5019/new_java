@@ -1,0 +1,11 @@
+package soft_06;
+
+public class TvRemoconX extends TvRemocon {
+	
+	void check_bet() {
+		
+		help=String.format("건전지 체크");
+		
+	}
+
+}

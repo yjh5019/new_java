@@ -1,0 +1,146 @@
+
+package soft_05;
+import java.lang.Math;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+public class ex9_test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		DecimalFormat k37_df = new DecimalFormat("###,###,###"); // 가격 콤마 찍는 형식 지정
+		Calendar k37_calendar = new GregorianCalendar(); // 현재 시간을 가져오기
+		Calendar k37_calt = Calendar.getInstance();
+		SimpleDateFormat k37_SDF = new SimpleDateFormat("MM월 dd일"); // 날짜 형식 지정
+		SimpleDateFormat k37_sdt = new SimpleDateFormat("YYYY-MM-dd HH:mm");// 날짜 형식 지정
+		SimpleDateFormat k37_sde = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss"); // 날짜 형식 지정
+		SimpleDateFormat k37_sde1 = new SimpleDateFormat("YYYYMMdd"); //  날짜 형식 지정
+		
+		/////////////////////////////////////////////
+		//물품 항목
+		String[] k37_itemname = {"a해피홈1111알닫라 SAFE365 핸드폰",
+				"바나나1우1유유유유유","건포도","오렌지주스","초코에몽",
+							"딸기파이","초코우유","포도","사과주스","딸기에몽",
+							"바나나파이","a딸기우유(renew)","딸기","포도주스","삼겹살",
+							"진비빔면가가가","농심 신라면 39431g 이벤트","샌드위치맛있는1g","상투과자","들깨미역국",
+							"계란","김치볶음밥","짜파게티","핫도그","칫솔",
+							"닭가슴살","프로틴","샴푸","린스","입욕제",
+							"치약","면도기"};
+		//수량
+		int[] k37_num = 		{1,21,1,5,3,
+							2,1,1,1,2,
+							1,1,3,2,1,
+							2,1,3,3,1,
+							2,3,2,1,1,
+							1,1,1,1,2,
+							1,3};
+		// 가격
+		int[] k37_price = 		{17500,2540,33300,2000,1500,
+							1103,34100,4300,2500,1300,
+							1300,1500,70300,1710,1700,
+							1600,3000,24300,3738,4300,
+							13000,35300,50300,1000,1300,
+							1800,900,53031,5000,200,
+							6000,4500};
+		// 면세 물품 목록
+		boolean[] k37_taxfree = {false,true,false,true,true,
+							false,false,false,true,false,
+							true,true,true,true,false,
+							true,false,false,false,true,
+							true,true,false,true,true,
+							false,false,false,true,false,
+							true,false};
+		int k37_taxfree_sum = 0; // 면세 합계
+		int k37_non_taxfree_sum = 0; // 비면세 합계 변수 선언 및 초기화
+		double k37_tax = 0;
+		System.out.printf("             이마트 죽전점(031)888-1234\n");
+		System.out.printf("    Emart    206-86-50913 강희석\n");
+		System.out.printf("             용인 수지구 포은대로 552\n");
+		System.out.printf("영수증 미참시 교환/환불 불가\n");
+		System.out.printf("정상상품에 한함, 30일 이내(신선 7일)\n");
+		System.out.printf("※일부 브랜드매장 제외(매장 고지물참조)\n");
+		System.out.printf("교환/환불 구매점에서 가능(결제카드 지참)\n");
+		System.out.printf("\n");
+		System.out.printf("[구 매]%s    POS:0011-9861\n",k37_sdt.format(k37_calt.getTime())); // 영수증 출력 시간을 calt.getTime을 통해 가져와 sdt.format형식으로 출력
+		System.out.printf("----------------------------------------\n");
+		System.out.printf("  상 품 명          단 가 수량    금 액\n");
+		System.out.printf("----------------------------------------\n");
+		for(int k37_i=0;k37_i<k37_itemname.length; k37_i++) {
+			String k37_str = k37_itemname[k37_i];
+			k37_str = k37_str+"           "; // str 문자에 공백 추가
+			byte[] bb = k37_str.getBytes(); // 바이트 배열 선언 후 str 문자를 바이트로 변환
+			k37_str = new String(bb,0,13); // str string 변수에 변환한 bb를 0~13까지 자르기
+//			System.out.printf("%s\n",str.length()); //==>13번째 바이트 값 확인
+			for(int k=0;k<k37_str.length()+4; k++) {
+				if(bb[k] >= -95 && bb[k]<=-31) { // bb 의 값이 ㄱ~ㅎ 까지 -95~-31이므로 해당 조건문 수행
+					k37_str = new String(bb,0,12) + " "; // 12번째 바이트 값 + 공백 추가
+				}else {
+					k37_str = new String(bb,0,12); // 조건문이 아니라면 13까지 출력
+				}
+			}
+//			if(bb[13] >= -95 && bb[13]<=-31) { // bb 의 값이 ㄱ~ㅎ 까지 -95~-31이므로 해당 조건문 수행
+//				str = new String(bb,0,12) + " "; // 12번째 바이트 값 + 공백 추가
+//			}else {
+//				str = new String(bb,0,13); // 조건문이 아니라면 13까지 출력
+//			}
+//			
+			
+			// 면세물품 인 경우 *을 추가하여 출력하는 조건문
+			if (k37_taxfree[k37_i]==true) {
+		        k37_str = "* " + k37_str;
+		        k37_taxfree_sum+=k37_price[k37_i]*k37_num[k37_i]; // 면세가격에 수량을 곱해 총 면세 물품의 가격을 계산
+		    // 아니라면, * 만큼의 공백을 추가하여 줄맞춤
+		    }else if(k37_taxfree[k37_i]==false) {
+		    	
+		    	k37_str = "  " + k37_str;
+		    	k37_non_taxfree_sum+=k37_price[k37_i]*k37_num[k37_i]; // 과세물품의 합을 더해 과세물품 가격 출력하는 변수 선언
+		    	k37_tax = (double)(k37_non_taxfree_sum/11.0); // 세금계산시 세금을 먼저 정해놓고, 과세가격을/11로 나눈뒤 실수형으로 형변환
+		    	if(k37_tax == (int)k37_tax) { // 그 값이 정수형 tax값과 같아면
+		    		k37_tax = (int)k37_tax; // 그대로 출력
+		    	}else  { // 아니라면
+//		    		k37_tax = (double)(k37_non_taxfree_sum/11.0); // 11로 나눈값을 출력
+		    		k37_tax = (int)k37_tax + 1;
+		    	}
+		    }
+			System.out.printf("%s %10s %2d %10s\n", k37_str,k37_df.format(k37_price[k37_i]),k37_num[k37_i],k37_df.format(k37_price[k37_i]*k37_num[k37_i])); // 상품명,단가,수량,금액 출력
+			if((k37_i+1)%5==0) {
+				System.out.printf("----------------------------------------\n");
+			}
+		}
+		//int vat = Math.round(non_taxfree_sum * 0.1f);
+//		int vat = Math.round(non_taxfree_sum * 0.1f);
+		int k37_th_point = 164;
+		int k37_point = 5639;
+		System.out.printf("\n");
+		System.out.printf("               총 물품 수량 %12d\n",k37_itemname.length); // sum을 통해 총 상품 갯수를 출력
+		System.out.printf("            (*)면 세  물 품 %12.10000000s\n",k37_df.format(k37_taxfree_sum)); //  면세 물품 총 액을 합산하여 출력
+		System.out.printf("               과 세  물 품 %12.10000000s\n",k37_df.format(k37_non_taxfree_sum-k37_tax)); //과세 물품 총액을 합산하여 출력
+		System.out.printf("               부   가   세 %12.10000000s\n",k37_df.format(k37_tax)); // 과세물품에 대한 부가세 출력
+		System.out.printf("               합        계 %12.10000000s\n", k37_df.format(k37_taxfree_sum+k37_non_taxfree_sum)); // 위 세가지 항목들의 합계
+		System.out.printf("결 제 대 상 금 액%23.10000000s\n",k37_df.format(k37_taxfree_sum+k37_non_taxfree_sum)); // 합계
+		System.out.printf("----------------------------------------\n");
+		System.out.printf("0012 KEB 하나      541707**0484/35860658\n");
+		System.out.printf("카드결제(IC)           일시불/%10s\n",k37_df.format(k37_taxfree_sum+k37_non_taxfree_sum));// 합계를 콤마 형식으로 출력
+		System.out.printf("----------------------------------------\n");
+		System.out.printf("          [신세계포인트 적립]\n");
+		System.out.printf("윤*현 고객님의 포인트 현황입니다.\n");
+		System.out.printf("금회발생포인트    9350**9995      %6s\n",k37_df.format(k37_th_point));
+		System.out.printf("누계(가용)포인트     %9s(  %6s)\n",k37_df.format(k37_point),k37_df.format(k37_point)); // 가용포인트 또한 콤마 형식으로 출력
+		System.out.printf("*신세계포인트 유효기간은 2년입니다.\n");
+		System.out.printf("----------------------------------------\n");
+		System.out.printf("   구매금액기준 무료주차시간 자동부여\n");
+		System.out.printf("차량번호 :                      34저****\n");
+		System.out.printf("입차시간 : %29s\n",k37_sde.format(k37_calt.getTime())); // 현재 시간을 가져와 형식을 지정하여 출력
+		System.out.printf("----------------------------------------\n");
+		System.out.printf("캐셔:084599 윤OO                    1150\n");
+		System.out.printf("%14s/00119861/00164980/31\n",k37_sde1.format(k37_calt.getTime())); // 현재 시간 출력
+		
+	}
+	}
+
+
+
+

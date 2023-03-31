@@ -1,0 +1,47 @@
+package soft_06;
+
+public class ex38_method {
+	
+	public class InputData {
+	    public String[] name;
+	    public int[] kor;
+	    public int[] eng;
+	    public int[] mat;
+	    public int[] sum;
+	    public double[] ave;
+	    public int[] sum_kor;
+        public int[] sum_eng;
+        public int[] sum_mat;
+        public int[] sum_total;
+	    
+	    public InputData(int numPersons) {
+	        name = new String[numPersons];
+	        kor = new int[numPersons];
+	        eng = new int[numPersons];
+	        mat = new int[numPersons];
+	        sum = new int[numPersons];
+	        ave = new double[numPersons];
+	        sum_kor = new int[numPersons];
+            sum_eng = new int[numPersons];
+            sum_mat = new int[numPersons];
+            sum_total = new int[numPersons];
+	    }
+	    
+	    public void SetData(int index, String name, int kor, int eng, int mat) {
+	        this.name[index] = name;
+	        this.kor[index] = kor;
+	        this.eng[index] = eng;
+	        this.mat[index] = mat;
+	        this.sum[index] = kor + eng + mat;
+	        
+	        sum_kor[index] += kor;
+            sum_eng[index] += eng;
+            sum_mat[index] += mat;
+            sum_total[index] = sum_kor[index] + sum_eng[index] + sum_mat[index];
+	        this.ave[index] = (double)sum[index] / 3.0;
+	    }
+
+	}
+
+
+}

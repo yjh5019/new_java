@@ -1,0 +1,23 @@
+package test;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import javax.print.attribute.standard.OutputDeviceAssigned;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		ex();
+	}
+	
+	public static void ex() {
+		System.out.println("133333");
+	}
+	
+	public static void eeee() {
+		System.out.println("33311111333");
+	}
+
+}
