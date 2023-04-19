@@ -5,14 +5,7 @@ public class solv04 {
 	public int solution(int[] nums, int m){
 		int answer = 0;
 		
-		HashMap hm = new HashMap();
-		HashMap<Integer, Integer> hm = new HashMap<>();
-		int sum = 0; 
-		for(int i=0; i<nums.length; i++) {
-			sum+= nums[i];
-			hm.put(i,sum);
-			System.out.println(hm);
-		}
+	
 		
 		
 		

@@ -1,29 +1,71 @@
 package java0406;
 import java.util.*;
 public class solv05 {
+	
+	public String solution(String[] votes, int k){
+		String answer = " ";
+		
+		HashMap<String, HashSet<String>> voteHash = new HashMap<>();
+		HashMap<String, Integer> candidate = new HashMap<>();
+		HashMap<String, Integer> present = new HashMap<>();
+		for(String x : votes){
+			String a = x.split(" ")[0];
+			String b = x.split(" ")[1];
+			voteHash.putIfAbsent(a, new HashSet<String>());
+			voteHash.get(a).add(b);
+			candidate.put(b, candidate.getOrDefault(b, 0) + 1);
+		}
+		int max=Integer.MIN_VALUE;
+		for(String a : voteHash.keySet()){
+			int cnt = 0;
+			for(String b : voteHash.get(a)){
+				if(candidate.get(b) >= k) cnt++;
+			}
+			present.put(a, cnt);
+			max = Math.max(max, cnt);
+		}
+		ArrayList<String> tmp = new ArrayList<>();
+		for(String name : present.keySet()){
+			if(present.get(name) == max) tmp.add(name);
+		}
+		tmp.sort((a, b) -> a.compareTo(b));
+		answer = tmp.get(0);
+		
+		
+		
+		
+		
+		
+///////////////////////////////////////////////////////		
+//		for(int i=0; i<votes.length; i++) {
+//			String str = votes[i];
+//			
+//			String[] ch = str.split(" ");
+//			hm.put(ch[0], ch[1]).toLowerCase();
+//			
+//			System.out.println(hm);
+//		}
+///////////////////////////////////////////////////////		
+		
+		
+		
+		
+
+		return answer;
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		solv05 T = new solv05();
+		System.out.println(T.solution(new String[]{"john tom", "daniel luis", "john luis", "luis tom", "daniel tom", "luis john"}, 2));
+		System.out.println(T.solution(new String[]{"john tom", "park luis", "john luis", "luis tom", "park tom", "luis john", "luis park", "park john", "john park", "tom john", "tom park", "tom luis"}, 2));
+		System.out.println(T.solution(new String[]{"cody tom", "john tom", "cody luis", "daniel luis", "john luis", "luis tom", "daniel tom", "luis john"}, 2));
+		System.out.println(T.solution(new String[]{"bob tom", "bob park", "park bob", "luis park", "daniel luis", "luis bob", "park luis", "tom bob", "tom luis", "john park", "park john"}, 3));
 		
-		HashMap hm = new HashMap();
-		HashMap<Integer, Integer> hmee = new HashMap<>();
-		int[] nums = {2, 2, 3, -1, -1, -1, 3, 1, 1};
-		int sum = 0; 
-		int count = 0;
-		for(int i=0; i<nums.length; i++) {
-			sum+= nums[i];
-			for(int j=0; j<nums.length; j++) {
-				if(nums[j+1] == nums[j]) {
-					count++;
-					break;
-				}
-				
-			}
-			hmee.put(nums[i],count);
-			System.out.println(hmee);
+		
+		
+		
 		}
-
+		
 	}
-
-}
