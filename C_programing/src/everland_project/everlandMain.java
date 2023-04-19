@@ -2,7 +2,7 @@ package everland_project;
 
 import java.util.*;
 public class everlandMain {
-
+	
     public static int calculateAge(long jumin) {
         int year, month, day, age;
 
@@ -193,10 +193,12 @@ public class everlandMain {
         int count = 0;
         int total_price = 0;
         int price = 0;
-        long jumin;
         int day_night_type, use_fee, keep_ticket, age, how_many_ticket, prior_type;
         double discount_rate;
-        
+        long jumin;
+//    	int age;
+        everlandMain everland = new everlandMain();
+        OutputClass2 outputClass = new OutputClass2();
         
         while(true){
         // while문 몇번 도는지 count

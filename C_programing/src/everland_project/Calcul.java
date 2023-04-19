@@ -94,7 +94,7 @@ public class Calcul {
     	
     	return price;
     }
-	// 티켓 타입 대인 소인 ...등 출력하는 함수
+//	 티켓 타입 대인 소인 ...등 출력하는 함수
 	public String age_type (int age){
         String age_type;
         if(age<= 64 && age >=19){
@@ -126,22 +126,23 @@ public class Calcul {
         return age_type2;
     }
 	
-	public void jugan_yagan(String [][] a, int day_night_type, int count) {
-    	
-    	if(day_night_type == 1){
-            a[count-1][0] = "주간권 ";
-        }else{
-            a[count-1][0] = "야간권 ";
+	// 우대 사항 저장 
+	public String setPriorType(int prior_type) {
+		String udae;
+        if (prior_type == 1) {
+        	udae = " * 우대적용 없음";
+        } else if (prior_type == 2) {
+        	udae = " * 장애인 우대적용";
+        } else if (prior_type == 3) {
+        	udae = " * 국가유공자 우대적용";
+        } else if (prior_type == 4) {
+        	udae = " * 다자녀 우대적용";
+        } else {
+        	udae = " * 임산부 우대적용";
         }
+        return udae;
     }
-	public void jugan_yagan(int day_night_type) {
-    	String jugan_yagan;
-    	if(day_night_type == 1){
-    		jugan_yagan = "주간권 ";
-        }else{
-        	jugan_yagan = "야간권 ";
-        }
-    }
+	
 	public void setPriorType(String[][] a, int prior_type, int count) {
         if (prior_type == 1) {
             a[count - 1][2] = " * 우대적용 없음";

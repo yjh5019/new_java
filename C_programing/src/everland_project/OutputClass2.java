@@ -11,21 +11,12 @@ public class OutputClass2 {
 		calculator = new Calcul();
 	}
 	
-	public void outputAge(long jumin, int count){
-		int age;
-		age = calculator.calculateAge(jumin);
-		
-		
-		
-
-		
-	}
-	public void outputAge(long jumin){
-		
-		int age = calculator.calculateAge(jumin);
-		
-		
-
+	public void print_price(int price) {
+		System.out.println("가격은 "+price+"원 입니다.");
+        System.out.println("감사합니다.");
+        System.out.println("계속 발권 하시겠습니까?");
+        System.out.println("1. 티켓 발권");
+        System.out.println("2. 종료");
 		
 	}
 

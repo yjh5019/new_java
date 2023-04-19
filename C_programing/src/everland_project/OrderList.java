@@ -2,11 +2,11 @@ package everland_project;
 
 public class OrderList {
 	
-	private String jugan_yagan;
-	private String age_type2;
-	private int count_b;
-	private int count_c;
-	private String udae;
+	private String jugan_yagan; // 주간권
+	private String age_type2;  // 대인소인
+	private int count_b;  // 티켓 갯수
+	private int count_c; // 가격
+	private String udae; // 우대사항
 	
 	public OrderList(String jugan_yagan,String age_type2,int count_b,
 			int count_c,String udae) {

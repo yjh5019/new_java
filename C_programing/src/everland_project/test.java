@@ -55,9 +55,6 @@ public class test {
     	return price;
     }
     
-    List<OrderList> data = new ArrayList<OrderList>();
-	OrderList orderList = null; 
-    
     public static void main(String[] args) {
     	
     	test aa = new test();
