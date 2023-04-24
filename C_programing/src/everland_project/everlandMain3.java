@@ -9,7 +9,6 @@ public class everlandMain3 {
     double discount_rate;
 	String jugan_yagan,age_type2,udae;
 	int count_b,count_c;
-	ConstValueClass2 constvalue = new ConstValueClass2();
 	InputClass2 inputClass = new InputClass2();
 	Calcul calculator = new Calcul();
 	OutputClass2 outputClass = new OutputClass2();
@@ -28,9 +27,9 @@ public class everlandMain3 {
         
         
         while(true){
-        everland3.Input();
-        everland3.calculate();
-        everland3.output();
+        everland3.Input(); // 입력
+        everland3.calculate(); // 계산
+        everland3.output(); //  출력
         keep_ticket = scanner.nextInt();
         everland3.saveData();
         if(keep_ticket == 2){
