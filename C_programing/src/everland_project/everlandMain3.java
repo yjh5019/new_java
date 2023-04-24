@@ -3,7 +3,6 @@ import java.util.*;
 
 
 public class everlandMain3 {
-	Scanner scanner = new Scanner(System.in);
 	int day_night_type,how_many_ticket,prior_type,keep_ticket,age,use_fee,total_price,price = 0,count=0;
     long jumin;
     double discount_rate;
@@ -24,7 +23,13 @@ public class everlandMain3 {
 		Scanner scanner = new Scanner(System.in);
         int keep_ticket;
         everlandMain3 everland3 = new everlandMain3();
+//        ConstValueClass2.startLanguage();
         
+//        ConstValueClass2.startLanguage();
+        
+        Locale currentLocale = Locale.getDefault();
+        System.out.println("locale : " + currentLocale.getCountry());
+        ConstValueClass2.startLanguage(currentLocale.getCountry());
         
         while(true){
         everland3.Input(); // 입력
@@ -47,6 +52,8 @@ public class everlandMain3 {
     //InputData
     void Input() {
     	count++;
+//    	ConstValueClass2.startLanguage();
+         
     	day_night_type = inputClass.getDayNightType(); // 주간 야간 입력
     	jugan_yagan = inputClass.jugan_yagan(day_night_type);// 주간 야간 정보 저장
     	age = inputClass.juminInput(); //  주민번호 입력
@@ -66,7 +73,7 @@ public class everlandMain3 {
     }
     void last_order() {
 //    	outputClass.last_order(jugan_yagan,age_type2,count_b,count_c,udae,total_price);
-    	System.out.println("====================에버랜드=====================");
+    	System.out.println(ConstValueClass2.PRINT_EVERLAND);
     	for(OrderList order : data) {
     		jugan_yagan = order.get_jugan_yagan();
     		age_type2 = order.get_age_type2();
@@ -77,14 +84,17 @@ public class everlandMain3 {
 			System.out.print(jugan_yagan+"\t");
 			System.out.print(age_type2+"\t");
 			System.out.print(count_b+"\t");
-			System.out.print(count_c+"원"+"\t");
+			System.out.print(count_c);
+			System.out.print(ConstValueClass2.WON+"\t");
 			System.out.print(udae+"\n");
 		}
     	
-    	System.out.println("입장료 총액은 "+total_price+"원 입니다.");
-      System.out.println("=================================================");
+    	System.out.print(ConstValueClass2.PRINT_TOTAL_PRICE+" ");
+    	System.out.println(total_price + ConstValueClass2.WON);
+      System.out.println("=================================================================================================");
     }
     void output() {
+//    	ConstValueClass2.startLanguage();
     	outputClass.print_price(price);
     	
     }

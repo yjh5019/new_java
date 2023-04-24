@@ -24,21 +24,20 @@ public class OrderList {
 		
 		return jugan_yagan;
 	}
-	
 	public String get_age_type2() {
 		
 		return age_type2;
 	}
 	public int get_count_b() {
+		
 		return count_b;
 	}
 	public int get_count_c() {
+		
 		return count_c;
 	}
 	public String get_udae() {
+		
 		return udae;
 	}
-	
-	
-
 }

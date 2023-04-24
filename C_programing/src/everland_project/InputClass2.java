@@ -6,18 +6,20 @@ public class InputClass2 {
 	private Scanner scanner = null;
 //	private everlandMain2 everland = null;
 	private Calcul calculator = null;
+	private ConstValueClass2 constValue = null;
 	public InputClass2() {
 		scanner = new Scanner(System.in);
 		calculator = new Calcul();
+		constValue = new ConstValueClass2();
 //		everland = new everlandMain2();
 		
 		
 	}
 	// 권종 선택 함수
     public int getDayNightType() {
-    	System.out.println("권종을 선택하세요 : \n");
-    	System.out.println("1. 주간권\n");
-    	System.out.println("2. 야간권\n");
+    	System.out.println(ConstValueClass2.TICKET_TYPE_QUESTION);
+    	System.out.println(ConstValueClass2.TICKET_TYPE_WEEK);
+    	System.out.println(ConstValueClass2.TICKET_TYPE_NIGHT);
     	int day_night_type = scanner.nextInt();
     	return day_night_type;
     	
@@ -26,9 +28,9 @@ public class InputClass2 {
     public String jugan_yagan(int day_night_type) {
     	String jugan_yagan;
     	if(day_night_type == 1){
-    		jugan_yagan = "주간권 ";
+    		jugan_yagan = ConstValueClass2.PRINT_JUGAN;
         }else{
-        	jugan_yagan = "야간권 ";
+        	jugan_yagan = ConstValueClass2.PRINT_YAGAN;
         }
     	return jugan_yagan;
     	
@@ -37,7 +39,7 @@ public class InputClass2 {
     public int juminInput() {
     	long jumin;
     	int age;
-    	System.out.println("주민번호를 입력하세요: ");
+    	System.out.println(ConstValueClass2.PRINT_JUMIN_NUM);
     	jumin = scanner.nextLong();
     	age = calculator.calculateAge(jumin);
     	return age;
@@ -45,30 +47,32 @@ public class InputClass2 {
     // 몇개를 주문하시겠습니까? (최대 10개) 입력
     public int howManyTicket() {
     	
-    	System.out.println("몇개를 주문하시겠습니까? (최대 10개)\n");
+    	System.out.println(ConstValueClass2.HOW_MANY_TICKET);
     	int how_many_ticket = scanner.nextInt();
     	
     	return how_many_ticket;
     }
     
     public int udae_printf() {
-    	System.out.println("우대사항을 선택하세요.");
-        System.out.println("1. 없음");
-        System.out.println("2. 장애인");
-        System.out.println("3. 국가유공자");
-        System.out.println("4. 다자녀");
-        System.out.println("5. 임산부");
+    	System.out.println(ConstValueClass2.SELECT_UDAE);
+        System.out.println(ConstValueClass2.SELECT_UDAE_1);
+        System.out.println(ConstValueClass2.SELECT_UDAE_2);
+        System.out.println(ConstValueClass2.SELECT_UDAE_3);
+        System.out.println(ConstValueClass2.SELECT_UDAE_4);
+        System.out.println(ConstValueClass2.SELECT_UDAE_5);
         int prior_type = scanner.nextInt();
         
         return prior_type;
     }
     // output
     public void print_price(int price, int keep_ticket) {
-    	System.out.println("가격은 "+price+"원 입니다.");
-        System.out.println("감사합니다.");
-        System.out.println("계속 발권 하시겠습니까?");
-        System.out.println("1. 티켓 발권");
-        System.out.println("2. 종료");
+    	System.out.print(ConstValueClass2.PRICE_OUTPUT_1);
+    	System.out.print(price);
+    	System.out.println(ConstValueClass2.PRICE_OUTPUT_2);
+        System.out.println(ConstValueClass2.PRICE_THANKS);
+        System.out.println(ConstValueClass2.PRICE_KEEP_TICKET);
+        System.out.println(ConstValueClass2.KEEP_GOING);
+        System.out.println(ConstValueClass2.STOP);
         keep_ticket = scanner.nextInt();
     	
     }

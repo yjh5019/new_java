@@ -10,24 +10,28 @@ public class OutputClass2 {
 	
 	private Calcul calculator = null;
 	private List<OrderList> data = null;
+	private ConstValueClass2 constValue = null;
 //	private OrderList orderList = null;
 	public OutputClass2() {
 		calculator = new Calcul();
 //		order = new ArrayList<OrderList>();
+		constValue = new ConstValueClass2();
 	}
 	
 	public void print_price(int price) {
-		System.out.println("가격은 "+price+"원 입니다.");
-        System.out.println("감사합니다.");
-        System.out.println("계속 발권 하시겠습니까?");
-        System.out.println("1. 티켓 발권");
-        System.out.println("2. 종료");
+		System.out.print(ConstValueClass2.PRICE_OUTPUT_1);
+    	System.out.print(price);
+    	System.out.println(ConstValueClass2.PRICE_OUTPUT_2);
+        System.out.println(ConstValueClass2.PRICE_THANKS);
+        System.out.println(ConstValueClass2.PRICE_KEEP_TICKET);
+        System.out.println(ConstValueClass2.KEEP_GOING);
+        System.out.println(ConstValueClass2.STOP);
 		
 	}
 	
 	public void last_order(String jugan_yagan,String age_type2, int count_b,int count_c, String udae, int total_price) {
 		
-		System.out.println("============에버랜드====================");
+		System.out.println(ConstValueClass2.PRINT_EVERLAND);
     	for(OrderList order : data) {
     		jugan_yagan = order.get_jugan_yagan();
     		age_type2 = order.get_age_type2();
@@ -38,11 +42,16 @@ public class OutputClass2 {
 			System.out.print(jugan_yagan+"\t");
 			System.out.print(age_type2+"\t");
 			System.out.print(count_b+"\t");
-			System.out.print(count_c+"원"+"\t");
+			System.out.print(count_c);
+			System.out.print(ConstValueClass2.WON+"\t");
 			System.out.print(udae+"\n");
 		}
     	
-    	System.out.println("입장료 총액은"+total_price+"입니다.");
+    	System.out.print(ConstValueClass2.PRINT_TOTAL_PRICE);
+    	System.out.println(total_price + ConstValueClass2.WON);
+    	
+    	
+    	
       System.out.println("========================================");
 		
 		

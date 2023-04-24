@@ -98,15 +98,15 @@ public class Calcul {
 	public String age_type (int age){
         String age_type;
         if(age<= 64 && age >=19){
-            age_type = "대인";
+            age_type = ConstValueClass2. AGE_TYPE_ADULT;
         }else if(age<= 18 && age >=13){
-            age_type = "청소년";
+            age_type = ConstValueClass2.AGE_TYPE_TEEN;
         }else if(age<= 3 && age >=12){
-            age_type = "소인";
+            age_type = ConstValueClass2.AGE_TYPE_CHILD;
         }else if(age >=65){
-            age_type = "경로";
+            age_type = ConstValueClass2.AGE_TYPE_OLD;
         }else{
-            age_type = "유아";
+            age_type = ConstValueClass2.AGE_TYPE_INFANT;
         }
         return age_type;
     }
@@ -115,15 +115,15 @@ public class Calcul {
 	public String setPriorType(int prior_type) {
 		String udae;
         if (prior_type == 1) {
-        	udae = " * 우대적용 없음";
+        	udae = ConstValueClass2.PRINT_UDAE_NONE;
         } else if (prior_type == 2) {
-        	udae = " * 장애인 우대적용";
+        	udae = ConstValueClass2.PRINT_UDAE_Disabled;
         } else if (prior_type == 3) {
-        	udae = " * 국가유공자 우대적용";
+        	udae =ConstValueClass2.PRINT_UDAE_MenofNationalMerit;
         } else if (prior_type == 4) {
-        	udae = " * 다자녀 우대적용";
+        	udae = ConstValueClass2.PRINT_UDAE_MultipleChildren;
         } else {
-        	udae = " * 임산부 우대적용";
+        	udae = ConstValueClass2.PRINT_UDAE_PregnantWoman;
         }
         return udae;
     }
