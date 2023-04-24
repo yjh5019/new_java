@@ -110,21 +110,6 @@ public class Calcul {
         }
         return age_type;
     }
-	public String age_type2 (int age){
-        String age_type2;
-        if(age<= 64 && age >=19){
-            age_type2 = "대인";
-        }else if(age<= 18 && age >=13){
-            age_type2 = "청소년";
-        }else if(age<= 3 && age >=12){
-            age_type2 = "소인";
-        }else if(age >=65){
-            age_type2 = "경로";
-        }else{
-            age_type2 = "유아";
-        }
-        return age_type2;
-    }
 	
 	// 우대 사항 저장 
 	public String setPriorType(int prior_type) {
@@ -143,36 +128,9 @@ public class Calcul {
         return udae;
     }
 	
-	public void setPriorType(String[][] a, int prior_type, int count) {
-        if (prior_type == 1) {
-            a[count - 1][2] = " * 우대적용 없음";
-        } else if (prior_type == 2) {
-            a[count - 1][2] = " * 장애인 우대적용";
-        } else if (prior_type == 3) {
-            a[count - 1][2] = " * 국가유공자 우대적용";
-        } else if (prior_type == 4) {
-            a[count - 1][2] = " * 다자녀 우대적용";
-        } else {
-            a[count - 1][2] = " * 임산부 우대적용";
-        }
-    }
-	public void setPriorType(int prior_type, int count) {
-		String udae;
-        if (prior_type == 1) {
-        	udae = " * 우대적용 없음";
-        } else if (prior_type == 2) {
-        	udae = " * 장애인 우대적용";
-        } else if (prior_type == 3) {
-        	udae = " * 국가유공자 우대적용";
-        } else if (prior_type == 4) {
-        	udae = " * 다자녀 우대적용";
-        } else {
-        	udae = " * 임산부 우대적용";
-        }
-    }
 	
 	
-	
+
 	
 	
 }

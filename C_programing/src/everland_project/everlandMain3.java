@@ -9,7 +9,6 @@ public class everlandMain3 {
     double discount_rate;
 	String jugan_yagan,age_type2,udae;
 	int count_b,count_c;
-	/////////////////////////////////////////////////////////
 	ConstValueClass2 constvalue = new ConstValueClass2();
 	InputClass2 inputClass = new InputClass2();
 	Calcul calculator = new Calcul();
@@ -22,24 +21,16 @@ public class everlandMain3 {
 	/////////////////////////////////////////////////////////
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		RunEverland runeverland = new RunEverland();
+//		RunEverland runeverland = new RunEverland();
 		Scanner scanner = new Scanner(System.in);
-        int total_price = 0;
         int keep_ticket;
         everlandMain3 everland3 = new everlandMain3();
         
         
         while(true){
-//        	runeverland.Input();
-//        	runeverland.calculate();
-//        	runeverland.output();
         everland3.Input();
         everland3.calculate();
         everland3.output();
-        
-        
-        
-        
         keep_ticket = scanner.nextInt();
         everland3.saveData();
         if(keep_ticket == 2){
@@ -48,7 +39,6 @@ public class everlandMain3 {
         }
         // 최종 결과 출력 창
         everland3.last_order();
-     /////////////////////////////////////////////////////////
 	}
 	void saveData() {
 		orderList = new OrderList(jugan_yagan,
@@ -59,55 +49,25 @@ public class everlandMain3 {
     void Input() {
     	count++;
     	day_night_type = inputClass.getDayNightType(); // 주간 야간 입력
-    	jugan_yagan = inputClass.jugan_yagan(day_night_type);
-    	age = inputClass.juminInput();
-    	age_type2 = calculator.age_type(age);
-    	how_many_ticket = inputClass.howManyTicket();
-    	count_b = how_many_ticket;
-    	prior_type = inputClass.udae_printf();
-    	udae = calculator.setPriorType(prior_type);
-    	use_fee =  calculator.how_much_ticket(age,day_night_type);
-    	discount_rate = calculator.discount_fee(prior_type);
+    	jugan_yagan = inputClass.jugan_yagan(day_night_type);// 주간 야간 정보 저장
+    	age = inputClass.juminInput(); //  주민번호 입력
+    	how_many_ticket = inputClass.howManyTicket(); //  티켓 갯수 입력
+    	count_b = how_many_ticket; //  누적 티켓 갯수 저장
+    	prior_type = inputClass.udae_printf(); //  우대사항 입력
+    	udae = calculator.setPriorType(prior_type); // 우대사항 내용 저장
+    	use_fee =  calculator.how_much_ticket(age,day_night_type); // 나이에 따른 티켓 가격 저장
+    	discount_rate = calculator.discount_fee(prior_type); // 우대 사항에 따른 할인율
     	}
     // calcul
-    // calcul
-    void discount_fee(){
-        
-	   if(prior_type == 1){
-	      discount_rate = constvalue.NO_DISCOUNT_RATE;
-	   }else if(prior_type == 2){
-	      discount_rate = constvalue.DISABLE_DISCOUNT_RATE;
-	   }else if(prior_type == 3){
-	      discount_rate = constvalue.COUNTRY_DISCOUNT_RATE;
-	   }else if(prior_type == 4){
-	      discount_rate = constvalue.MULTICHILD_DISCOUNT_RATE;
-	   }else{
-	      discount_rate = constvalue.PREGNANT_DISCOUNT_RATE;
-	   }
-	
-	    }
     void calculate() {
-    	price = calculator.cal_each_ticket(use_fee,discount_rate,how_many_ticket);
-    	count_c = price;
-    	total_price += price;
-    }
-    String age_type (int age){
-        String age_type;
-        if(age<= 64 && age >=19){
-            age_type = "대인";
-        }else if(age<= 18 && age >=13){
-            age_type = "청소년";
-        }else if(age<= 3 && age >=12){
-            age_type = "소인";
-        }else if(age >=65){
-            age_type = "경로";
-        }else{
-            age_type = "유아";
-        }
-        return age_type;
+    	age_type2 = calculator.age_type(age); // 만 나이 계산
+    	price = calculator.cal_each_ticket(use_fee,discount_rate,how_many_ticket); // 할인된 티켓 가격 계산
+    	count_c = price; //  가격 저장 후 최종 
+    	total_price += price; //  누적 가격 저장
     }
     void last_order() {
-    	System.out.println("============에버랜드====================");
+//    	outputClass.last_order(jugan_yagan,age_type2,count_b,count_c,udae,total_price);
+    	System.out.println("====================에버랜드=====================");
     	for(OrderList order : data) {
     		jugan_yagan = order.get_jugan_yagan();
     		age_type2 = order.get_age_type2();
@@ -122,8 +82,8 @@ public class everlandMain3 {
 			System.out.print(udae+"\n");
 		}
     	
-    	System.out.println("입장료 총액은"+total_price+"입니다.");
-      System.out.println("========================================");
+    	System.out.println("입장료 총액은 "+total_price+"원 입니다.");
+      System.out.println("=================================================");
     }
     void output() {
     	outputClass.print_price(price);
