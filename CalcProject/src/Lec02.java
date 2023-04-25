@@ -19,6 +19,7 @@ public class Lec02 {
 			System.out.printf("빈 파일 입니다\n");  //  만일 빈 파일일 경우 출력
 			return;
 		}
+		
 		String[] field_name = kopo37_readtxt.split("\t"); // 탭 기준으로 필드를 나눔
 		
 		double kopo37_lat = 37.3860521; // 위도

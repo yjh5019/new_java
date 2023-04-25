@@ -33,7 +33,7 @@ public class Lec03 {
 		while ((kopo37_readtxt = kopo37_br.readLine()) != null) {
 			try { //  빈 데이터에 대한 에러 잡기 위한 try catch fiallay 
 				String[] kopo37_field = kopo37_readtxt.split("\t"); // 탭 기준으로 필드를 나눔
-				System.out.printf("**[%d번째 항목]********************\n", kopo37_LineCnt);
+				System.out.printf("**[%d번째 항목]*******************************************\n", kopo37_LineCnt);
 				System.out.printf("%s : %s\n", kopo37_field_name[4], kopo37_field[4]); // 10번째 항목인 소재재 지번 주소
 				System.out.printf("%s : %s\n", kopo37_field_name[28], kopo37_field[28]); // 29번 째 위도
 				System.out.printf("%s : %s\n", kopo37_field_name[29], kopo37_field[29]); // 30번 째 경도
@@ -52,7 +52,7 @@ public class Lec03 {
 					kopo37_farthest = String.format("[%d번째 항목] %s : %s, %s : %s, %s : %s", kopo37_LineCnt, kopo37_field_name[4], kopo37_field[4],
 							kopo37_field_name[28], kopo37_field[28], kopo37_field_name[29], kopo37_field[29]);
 				}
-				System.out.printf("****************************************\n");
+				System.out.printf("**********************************************************\n");
 			} catch (Exception e) {
 			} finally {
 				if(kopo37_LineCnt == 100)break; // 100개가 되면 탈출

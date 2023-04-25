@@ -12,7 +12,7 @@ public  class RunEverland {
 	private int count_b,count_c;
 	
 	
-	public  RunEverland() {
+	public RunEverland() {
 		calculator = new Calcul();
 		outputClass = new OutputClass2();
 		inputClass = new InputClass2();
