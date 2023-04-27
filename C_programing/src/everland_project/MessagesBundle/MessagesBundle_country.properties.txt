@@ -1,0 +1,35 @@
+TICKET_TYPE_QUESTION = 권종을 선택하세요\n
+TICKET_TYPE_WEEK = 1. 주간권
+TICKET_TYPE_NIGHT = 2. 야간권
+PRINT_JUMIN_NUM = 주민번호를 입력하세요:
+HOW_MANY_TICKET = 몇개를 주문하시겠습니까? (최대 10개)
+SELECT_UDAE = 우대사항을 선택하세요.
+SELECT_UDAE_1 = 1. 없음
+SELECT_UDAE_2 = 2. 장애인
+SELECT_UDAE_3 = 3. 국가유공자
+SELECT_UDAE_4 = 4. 다자녀
+SELECT_UDAE_5 = 5. 임산부
+PRICE_OUTPUT_1 = 가격은
+PRICE_OUTPUT_2 = 원 입니다.
+PRICE_THANKS = 감사합니다.
+PRICE_KEEP_TICKET = 계속 발권 하시겠습니까?
+KEEP_GOING = 1. 티켓 발권
+STOP = 2. 종료
+
+PRINT_EVERLAND = ===========================================에버랜드============================================
+PRINT_JUGAN = 주간권
+PRINT_YAGAN = 야간권
+
+AGE_TYPE_ADULT = 대인
+AGE_TYPE_TEEN = 청소년
+AGE_TYPE_CHILD = 소인
+AGE_TYPE_OLD = 경로
+AGE_TYPE_INFANT = 유아
+
+PRINT_UDAE_NONE = * 우대적용 없음
+PRINT_UDAE_Disabled = * 장애인 우대적용
+PRINT_UDAE_MenofNationalMerit = * 국가유공자 우대적용
+PRINT_UDAE_MultipleChildren = * 다자녀 우대적용
+PRINT_UDAE_PregnantWoman = * 임산부 우대적용
+WON = 원
+PRINT_TOTAL_PRICE = 입장료 총액은

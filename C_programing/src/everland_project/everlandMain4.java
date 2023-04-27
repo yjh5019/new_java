@@ -1,6 +1,7 @@
 package everland_project;
-
 import java.util.*;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 public class everlandMain4 {
     private int day_night_type, how_many_ticket, prior_type, age, use_fee, total_price, price = 0, count = 0;
@@ -14,14 +15,21 @@ public class everlandMain4 {
     private final List<OrderList> data = new ArrayList<>();
     private OrderList orderList = null;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+    	
+//    	ResourceBundle rb = ResourceBundle.getBundle("everland_project.messages");
+//    	String greeting = rb.getString("TICKET_TYPE_QUESTION");
+//    	System.out.println(greeting);
+    	
         Scanner scanner = new Scanner(System.in);
         int keep_ticket;
         everlandMain4 everland4 = new everlandMain4();
-        Locale currentLocale = Locale.getDefault();
-        System.out.println("locale : " + currentLocale.getCountry());
-        ConstValueClass2.startLanguage(currentLocale.getCountry());
-
+//        Locale currentLocale = Locale.getDefault();
+//        System.out.println("locale : " + currentLocale.getCountry());
+//        ConstValueClass2.startLanguage(currentLocale.getCountry());
+        ConstValueClass2.startLanguage();
+//        Locale currentlocale = Locale.getDefault();
+//        System.out.println(currentlocale);
         while (true) {
             everland4.input();
             everland4.calculate();
