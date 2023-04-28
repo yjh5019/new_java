@@ -2,7 +2,11 @@ package everland_project;
 import java.util.*;
 import java.io.FileInputStream;
 import java.io.IOException;
-
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.io.FileWriter;
+import java.io.IOException;
 public class everlandMain4 {
     private int day_night_type, how_many_ticket, prior_type, age, use_fee, total_price, price = 0, count = 0;
     private long jumin;
@@ -24,24 +28,32 @@ public class everlandMain4 {
         Scanner scanner = new Scanner(System.in);
         int keep_ticket;
         everlandMain4 everland4 = new everlandMain4();
+        resultClass reportcsv = new resultClass();
 //        Locale currentLocale = Locale.getDefault();
 //        System.out.println("locale : " + currentLocale.getCountry());
 //        ConstValueClass2.startLanguage(currentLocale.getCountry());
         ConstValueClass2.startLanguage();
 //        Locale currentlocale = Locale.getDefault();
 //        System.out.println(currentlocale);
-        while (true) {
-            everland4.input();
-            everland4.calculate();
-            everland4.output();
-            keep_ticket = scanner.nextInt();
-            everland4.saveData();
-            if (keep_ticket == 2) {
-                break;
-            }
-        }
+//        while (true) {
+//            everland4.input();
+//            
+//            everland4.calculate();
+//            
+//            everland4.output();
+//            
+//            keep_ticket = scanner.nextInt();
+//            
+//            everland4.saveData();
+//            
+//            if (keep_ticket == 2) {
+//                break;
+//            }
+//        }
 
-        everland4.last_order();
+//        everland4.last_order();
+        reportcsv.reportCsv();
+        
     }
 
     private void saveData() {
@@ -69,9 +81,13 @@ public class everlandMain4 {
         total_price += price;
     }
 
-    private void last_order() {
+    private void last_order() throws IOException {
         System.out.println(ConstValueClass2.PRINT_EVERLAND);
+        FileWriter file = new FileWriter ("C:\\Users\\pc\\everland1.csv");
+        file.write("날짜" + "," + "권종" +"," + "연령구분"+"," + "수량" +"," + "가격" + "," + "우대사항"+"\n");
         for (OrderList order : data) {
+        	
+        	
             jugan_yagan = order.get_jugan_yagan();
             age_type2 = order.get_age_type2();
             count_b = order.get_count_b();
@@ -84,8 +100,17 @@ public class everlandMain4 {
             System.out.print(count_c);
             System.out.print(ConstValueClass2.WON + "\t");
             System.out.print(udae + "\n");
+            
+            LocalDate currentDateTime = LocalDateTime.now().toLocalDate(); //  현재 시간 가지고 오기
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+            try {
+            	file.write(currentDateTime.format(formatter) + "," + jugan_yagan + "," + age_type2 + "," + count_b + "," + count_c + "," + udae + "\n");
+            }catch(Exception e){
+            	System.out.println("file error");
+            	
+            }
         }
-
+        file.close();
         System.out.print(ConstValueClass2.PRINT_TOTAL_PRICE + " ");
         System.out.println(total_price + ConstValueClass2.WON);
         System.out.println("=================================================================================================");

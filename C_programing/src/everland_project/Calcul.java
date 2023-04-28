@@ -1,5 +1,7 @@
 package everland_project;
-
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
 public class Calcul {
@@ -28,6 +30,34 @@ public class Calcul {
         }
         return age;
     }
+
+
+
+
+//	public int calculateAge(long jumin) {
+//        int year, month, day, age;
+//
+//        year = (int) (jumin / 10000L); // 주민번호 앞 6자리 중 년도 부분
+//        month = (int) ((jumin % 10000L) / 100L);
+//        day = (int) (jumin % 100L);
+//
+//        // 현재년도 계산
+//        Calendar calendar = Calendar.getInstance();
+//        int this_year = calendar.get(Calendar.YEAR);
+//        int this_month = calendar.get(Calendar.MONTH) + 1;
+//        int this_day = calendar.get(Calendar.DAY_OF_MONTH);
+//
+//        // 생년월일을 이용한 만 나이 계산
+//        if (year >= 2000) { // 2000년 이후 출생자
+//            age = this_year - (year + 2000) + 1;
+//        } else { // 2000년 이전 출생자
+//            age = this_year - (year + 1900) + 1;
+//        }
+//        if (this_month < month || (this_month == month && this_day < day)) {
+//            age--; // 생일이 지나지 않은 경우 1을 빼줌
+//        }
+//        return age;
+//    }
 	
 	//배열 저장 함수
 	

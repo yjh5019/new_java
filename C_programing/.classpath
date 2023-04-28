@@ -6,6 +6,11 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/mysql-connector-j-8.0.33.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/pc/eclipse-workspace/C_programing/src/everland_project/MessagesBundle"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -42,8 +42,18 @@ public class InputClass2 {
     	System.out.println(ConstValueClass2.PRINT_JUMIN_NUM);
     	jumin = scanner.nextLong();
     	age = calculator.calculateAge(jumin);
+    	System.out.println(age);
     	return age;
     }
+    
+//    public int juminInput() {
+//    	long jumin;
+//    	int age;
+//    	System.out.println(ConstValueClass2.PRINT_JUMIN_NUM);
+//    	jumin = scanner.nextLong();
+//    	age = calculator.calculateAge(jumin);
+//    	return age;
+//    }
     // 몇개를 주문하시겠습니까? (최대 10개) 입력
     public int howManyTicket() {
     	

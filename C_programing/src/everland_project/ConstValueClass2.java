@@ -70,12 +70,9 @@ public class ConstValueClass2 {
 //		ConstValueClass2.LANGUAGE = country;
 //		String country
 		
-//		Locale currentlocale = Locale.getDefault();
+		Locale currentlocale = Locale.getDefault();
 //		Locale currentlocale = new Locale("en","US");
-		Locale currentlocale = new Locale("es","ES");
-				
-		
-		
+//		Locale currentlocale = new Locale("es","ES");
 		ResourceBundle messages = ResourceBundle.getBundle("MessagesBundle",currentlocale);
 		TICKET_TYPE_QUESTION = messages.getString("TICKET_TYPE_QUESTION");
 		TICKET_TYPE_WEEK = messages.getString("TICKET_TYPE_WEEK");
