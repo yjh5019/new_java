@@ -33,18 +33,18 @@ public class Basic_Training_1_distance {
 			
 			System.out.printf("주차장관리번호   :  %s\n",rset.getString(1));
 			System.out.printf("주차장명 : %s\n",rset.getString(2));
-			System.out.printf("소재지도로명주소 : %s\n",rset.getString(4));
-			System.out.printf("소재지지번주소 : %s\n",rset.getString(5));
-			System.out.printf("주차구획수 : %s\n",rset.getString(6));
-			System.out.printf("운영요일 : %s\n",rset.getString(9));
-			System.out.printf("평일운영시작시각 : %s\n",rset.getString(10));
-			System.out.printf("평일운영종료시각 : %s\n",rset.getString(11));
-			System.out.printf("요금정보 : %s\n",rset.getString(16));
-			System.out.printf("위도 : %s\n",rset.getString(28));
-			System.out.printf("관리기관명 : %s\n",rset.getString(29));
-			System.out.printf("경도 : %s\n",rset.getString(32));
-			System.out.printf("데이터기준일자 : %s\n",rset.getString(30));
-			System.out.printf("넘버 : %s\n",rset.getString(33));
+			System.out.printf("소재지도로명주소 : %s\n",rset.getString(3));
+			System.out.printf("소재지지번주소 : %s\n",rset.getString(4));
+			System.out.printf("주차구획수 : %s\n",rset.getString(5));
+			System.out.printf("운영요일 : %s\n",rset.getString(6));
+			System.out.printf("평일운영시작시각 : %s\n",rset.getString(7));
+			System.out.printf("평일운영종료시각 : %s\n",rset.getString(8));
+			System.out.printf("요금정보 : %s\n",rset.getString(9));
+			System.out.printf("위도 : %s\n",rset.getString(10));
+			System.out.printf("관리기관명 : %s\n",rset.getString(11));
+			System.out.printf("경도 : %s\n",rset.getString(12));
+			System.out.printf("데이터기준일자 : %s\n",rset.getString(13));
+			System.out.printf("넘버 : %s\n",rset.getString(14));
 			
 			System.out.printf("**********************************************************\n");
 		}

@@ -11,6 +11,7 @@ public class freewifi {
 		
 		stmt.execute("CREATE TABLE freewifi (" +
 				"wifi_Id  varchar(50) NOT NULL PRIMARY KEY , " +
+//				"wifi_Id  varchar(50) , " +
                 "inst_place varchar(50), " +
                 "inst_place_detail varchar(50), " +
                 "inst_city varchar(50), " +

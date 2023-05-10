@@ -13,7 +13,7 @@ public class Basic_Training_1_Add {
 		Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.23.229:33060/kopo37","root","kopoctc");
 		Statement stmt = conn.createStatement();		
 		
-		File f = new File("C:\\Users\\pc\\전국주차장정보표준데이터1.txt");
+		File f = new File("C:\\Users\\pc\\전국주차장정보표준데이터2 - 복사본.txt");
 //		File f = new File("C:\\Users\\pc\\전국무료와이파이표준데이터_날짜수정2.csv");
 		BufferedReader br = new BufferedReader(new FileReader(f));
 		
@@ -28,7 +28,7 @@ public class Basic_Training_1_Add {
 		String[] field_name = readtxt.split("\t"); // 필드 명 저장할 배열 string 변수
 //		String[] field_name = readtxt.split(","); // 필드 명 저장할 배열 string 변수
 		int LineCnt=0;
-		
+		System.out.println();
 //		stmt.execute("DROP TABLE freewifi;");
 		while((readtxt = br.readLine())!=null) {
 			

@@ -23,7 +23,8 @@ public class Basic_Training_1 {
                 "Longitude double, " + //  경도 29
                 "Providing_Agency_Name varchar(50), " + // 제공기관명 32
                 "write_date date, " + // 데이터기준일자  30
-                "NUM INT NOT NULL PRIMARY KEY" + // 33
+//                "NUM INT NOT NULL PRIMARY KEY" + // 33
+                "NUM INT NOT NULL PRIMARY KEY " + // 33
                 ") DEFAULT CHARSET=utf8"
         );
 		

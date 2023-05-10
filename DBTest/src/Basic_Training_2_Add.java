@@ -11,13 +11,13 @@ public class Basic_Training_2_Add {
 		
 		Random rand = new Random();
         for (int i = 0; i < 1000; i++) {
-            int id = i + 1;
-            String name = "Student_" + id;
-            int korean = rand.nextInt(101);
-            int english = rand.nextInt(101);
-            int math = rand.nextInt(101);
+            int student_id = i + 1;
+            String name = "Student_" + student_id;
+            int kor = rand.nextInt(101);
+            int eng = rand.nextInt(101);
+            int mat = rand.nextInt(101);
 
-            String query = String.format("INSERT INTO scoreTable VALUES ('%s', '%s', '%d', '%d', '%d')", id, name, korean, english, math);
+            String query = String.format("INSERT INTO grades VALUES ('%s', '%s', '%d', '%d', '%d')", student_id, name, kor, eng, mat);
             stmt.execute(query);
         }
 		

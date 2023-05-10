@@ -12,7 +12,7 @@ public class freewifi_insert_info {
 		Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.23.229:33060/kopo37","root","kopoctc");
 		Statement stmt = conn.createStatement();		
 		
-		File f = new File("C:\\Users\\pc\\전국무료와이파이표준데이터.txt");
+		File f = new File("C:\\Users\\pc\\전국무료와이파이표준데이터Refine.txt");
 		BufferedReader br = new BufferedReader(new FileReader(f));
 		
 		String readtxt;
