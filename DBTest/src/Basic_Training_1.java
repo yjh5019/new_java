@@ -4,12 +4,13 @@ public class Basic_Training_1 {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.23.229:33060/kopo37","root","kopoctc");
-		Statement stmt = conn.createStatement();		
-		stmt.execute("DROP TABLE parkingTable;");
+		Class.forName("com.mysql.cj.jdbc.Driver"); //  드라이버 로드
+		Connection kp37_conn = DriverManager.getConnection("jdbc:mysql://192.168.23.229:33060/kopo37","root","kopoctc");//데이터베이스 연결
+		// 해당 ip로 
+		Statement kp37_stmt = kp37_conn.createStatement();	// SQL문 실행을 위한 Statement 객체 생성	
+		kp37_stmt.execute("DROP TABLE parkingTable;"); // 기존 테이블 존재할때 테이블 삭제하고 다시 테이블 생성
 		
-		stmt.execute("CREATE TABLE parkingTable (" +
+		kp37_stmt.execute("CREATE TABLE parkingTable (" +  //  테이블 생성 쿼리 문
 				"Parking_Management_Number  varchar(50)  , " + // 주차장관리번호 0
                 "Parking_Lot_Name varchar(50), " + // 주차장명 1
                 "Road_Address varchar(50), " + // 소재지도로명주소 4
@@ -29,8 +30,8 @@ public class Basic_Training_1 {
         );
 		
 		
-		stmt.close();
-		conn.close();
+		kp37_stmt.close(); // Statement 객체  닫기
+		kp37_conn.close(); // 데이터베이스 연결 닫기 
 	}
 
 }

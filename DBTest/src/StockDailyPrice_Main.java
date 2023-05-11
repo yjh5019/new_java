@@ -5,12 +5,12 @@ public class StockDailyPrice_Main {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.23.229:33060/kopo37","root","kopoctc");
-		Statement stmt = conn.createStatement();		
-		stmt.execute("DROP TABLE StockDailyPrice1;");
+		Class.forName("com.mysql.cj.jdbc.Driver"); // 드라이버 로드
+		Connection kp37_conn = DriverManager.getConnection("jdbc:mysql://192.168.23.229:33060/kopo37","root","kopoctc");//데이터베이스 연결
+		Statement kp37_stmt = kp37_conn.createStatement();	// 쿼리 실행을 위한 Statement 객체 생성	
+		kp37_stmt.execute("DROP TABLE StockDailyPrice2;");
 		
-		stmt.execute("CREATE TABLE StockDailyPrice1 (" +
+		kp37_stmt.execute("CREATE TABLE StockDailyPrice2 (" + // StockDailyPrice1 테이블 생성
 		        "Code VARCHAR(50) NOT NULL, " + // 종목명
 		        "Date VARCHAR(50) NOT NULL, " + // 날짜
 		        "OpenPrice INT, " + // 시가
@@ -19,14 +19,14 @@ public class StockDailyPrice_Main {
 		        "ClosePrice INT, " + // 종가
 		        "Volume DOUBLE, " + // 거래량
 		        "Transaction_Amount DOUBLE ," + // 거래대금
-		        "PRIMARY KEY (Date, Code), " + // 복합 P-KEY
+		        "PRIMARY KEY (Date, Code), " + // 복합 P-KEY  date 와 code 를 복합키로 설정해 중복 방지
 		        "UNIQUE KEY (Date, Code)" + // 복합 P-KEY
-		        ") DEFAULT CHARSET=utf8"
+		        ") DEFAULT CHARSET=utf8"    // utf8로 언어 설정
 		);
 		
 		
-		stmt.close();
-		conn.close();
+		kp37_stmt.close(); // Statement 객체 닫기
+		kp37_conn.close(); //데이터베이스 연결 닫기
 	}
 
 }
