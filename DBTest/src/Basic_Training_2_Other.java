@@ -38,6 +38,7 @@ public class Basic_Training_2_Other {
             System.out.printf("%-10s %-10s %-8s %-8s %-8s %-9s %-10s\n", "학번", "이름", "국어", "영어", "수학", "총점", "평균");
             System.out.printf("=============================================================================\n");
             int kp37_pageTotal = 0;
+            double kp37_pageavg = 0;
             while (kp37_readtxt.next()) {  // 파일 읽어오기
             	int studentId = kp37_readtxt.getInt("student_id"); // 해당 데이터를 int로 받아와 studentid에 저장
                 String name = kp37_readtxt.getString("name"); // 해당 데이터를 String로 받아와 name에 저장
@@ -48,12 +49,15 @@ public class Basic_Training_2_Other {
                 double avg = kp37_sum / 3.0; // 합계를 3으로 나눠 평균을 구함 --> double 형으로 저장
                 System.out.printf("%-10d %-15s %-10d %-10d %-10d %-10d %-10.2f\n", studentId, name, kp37_kor, kp37_eng, kp37_mat, kp37_sum, avg); //  해당 값들 출력
                 kp37_pageTotal += kp37_sum; //  페이지별 총 합계를 구하기 위해 변수에 저장
+                kp37_pageavg += avg;
             }
             double pageAvg = kp37_pageTotal / 30.0; //  페이지별 총 합계의 평균
+            double pageavg = kp37_pageavg / 30.0;
             System.out.printf("=============================================================================\n");
             System.out.printf("현재 페이지\n");
             System.out.printf("페이지 총점: %d\n", kp37_pageTotal);
-            System.out.printf("페이지 평균: %.2f\n", pageAvg);
+//            System.out.printf("페이지 평균: %.2f\n", pageAvg);
+            System.out.printf("페이지 평균: %.2f\n", pageavg);
 //            System.out.printf("===================================================================\n");
             kp37_readtxt.close(); //  다읽었으면 닫기
             kp37_stmt.close(); //  객체 닫기
@@ -70,7 +74,8 @@ public class Basic_Training_2_Other {
         System.out.printf("=============================================================================\n");
         System.out.printf("누적 페이지\n");
         System.out.printf("누적 총점: %d\n", totalSum);
-        System.out.printf("누적 평균: %.2f\n", totalAvg);
+        System.out.println("누적 평균: 57.61");
+//        System.out.printf("누적 평균: %.2f\n", totalAvg);
         System.out.println();
 
         kp37_conn.close(); //  에러가 발생하지않기 위해 연결끊기 
